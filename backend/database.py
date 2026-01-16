@@ -1,5 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from config import MONGODB_URL, DATABASE_NAME
+import certifi
 
 client: AsyncIOMotorClient = None
 db = None
@@ -7,7 +8,8 @@ db = None
 async def connect_db():
     global client, db
     try:
-        client = AsyncIOMotorClient(MONGODB_URL)
+        # Use certifi for SSL certificates (required for Render deployment)
+        client = AsyncIOMotorClient(MONGODB_URL, tlsCAFile=certifi.where())
         db = client[DATABASE_NAME]
         # Test connection
         await client.admin.command('ping')
