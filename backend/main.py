@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import reviews, auth
 from database import connect_db, close_db
+from config import FRONTEND_URL
 from contextlib import asynccontextmanager
 
 @asynccontextmanager
@@ -19,10 +20,18 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS middleware
+# CORS middleware - allow frontend URL from environment
+allowed_origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    FRONTEND_URL,
+]
+# Remove duplicates and empty strings
+allowed_origins = list(set([o for o in allowed_origins if o]))
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
