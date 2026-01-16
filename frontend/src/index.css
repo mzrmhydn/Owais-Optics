@@ -1,0 +1,190 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@theme {
+    /* Primary: Light Blue (matching Owais Optics logo #69BEEB) */
+    --color-primary-50: #f0f9ff;
+    --color-primary-100: #e0f2fe;
+    --color-primary-200: #bae6fd;
+    --color-primary-300: #7dd3fc;
+    --color-primary-400: #69BEEB;
+    --color-primary-500: #38bdf8;
+    --color-primary-600: #0ea5e9;
+    --color-primary-700: #0284c7;
+    --color-primary-800: #0369a1;
+    --color-primary-900: #075985;
+
+    /* Accent: Dark Grey (matching Owais Optics logo #555759) */
+    --color-accent-400: #6b7280;
+    --color-accent-500: #555759;
+    --color-accent-600: #4b5563;
+
+    /* Light backgrounds */
+    --color-dark-700: #374151;
+    --color-dark-800: #1f2937;
+    --color-dark-900: #111827;
+
+    /* Fonts */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* Base styles */
+html {
+    scroll-behavior: smooth;
+}
+
+/* LIGHT THEME - Using logo colors: Light Blue #69BEEB, Dark Grey #555759, White #FFFFFF */
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: #555759;
+    min-height: 100vh;
+}
+
+/* Gradient text - Light Blue */
+.gradient-text {
+    background: linear-gradient(135deg, #69BEEB 0%, #38bdf8 50%, #0ea5e9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Light theme cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(85, 87, 89, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(85, 87, 89, 0.08);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(105, 190, 235, 0.4);
+    box-shadow: 0 8px 30px rgba(105, 190, 235, 0.15);
+}
+
+/* Primary button - Light Blue */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #69BEEB 0%, #0ea5e9 100%);
+    color: white;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(105, 190, 235, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(105, 190, 235, 0.5);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Secondary button - Dark Grey border */
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: #555759;
+    font-weight: 600;
+    border-radius: 12px;
+    border: 2px solid rgba(85, 87, 89, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: #69BEEB;
+    background: rgba(105, 190, 235, 0.1);
+    color: #0ea5e9;
+}
+
+/* Input fields - Light theme */
+.input-field {
+    width: 100%;
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(85, 87, 89, 0.2);
+    border-radius: 12px;
+    color: #555759;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-field::placeholder {
+    color: rgba(85, 87, 89, 0.5);
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #69BEEB;
+    box-shadow: 0 0 0 3px rgba(105, 190, 235, 0.2);
+    background: #FFFFFF;
+}
+
+/* Heading font class */
+.font-heading {
+    font-family: var(--font-heading);
+}
+
+/* Custom scrollbar - Light theme */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #69BEEB;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0ea5e9;
+}
+
+/* Animation keyframes */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(105, 190, 235, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(105, 190, 235, 0.6);
+    }
+}
